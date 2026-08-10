@@ -22,6 +22,13 @@ const members = [
     ago: 24,
     position: 'Retirado',
     photo: photos['/src/assets/img/Members/Daniel/Photo_Profile_Daniel.png'],
+    description: 'Nose',
+    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    skills: [
+      { name: 'Punteria contra señoras', point: '100/100', lineal: '100' },
+      { name: 'Resistencia contra mordeduras de perro', point: '40/100', lineal: '40' },
+      { name: 'nose 3', point: '100/100', lineal: '80' },
+    ],
   },
   {
     id: 2,
@@ -29,6 +36,13 @@ const members = [
     name: 'Pedro González',
     ago: 21,
     photo: photos['/src/assets/img/Members/Pedro/Photo_Profile_Pedro.png'],
+    description: 'Nose',
+    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    skills: [
+      { name: 'Vidente', point: '40/100', lineal: '40' },
+      { name: 'Espiritismo', point: '200/100', lineal: '100' },
+      { name: 'Pelos', point: '10/100', lineal: '10' },
+    ],
   },
   {
     id: 3,
@@ -36,6 +50,13 @@ const members = [
     name: 'Jose González',
     ago: 19,
     photo: photos['/src/assets/img/Members/Jose G/Photo_Profile_Jose.png'],
+    description: 'Nose',
+    epic_moments: ['Chocar contra un porton en pedregal', 'mome 2', 'mome 3'],
+    skills: [
+      { name: 'Columna de hierro', point: '70/100', lineal: '70' },
+      { name: 'Amante de la piedra', point: '90/100', lineal: '90' },
+      { name: 'nose 3', point: '100/100', lineal: '80' },
+    ],
   },
   {
     id: 4,
@@ -43,6 +64,13 @@ const members = [
     name: 'Julio Martinez',
     ago: 22,
     photo: photos['/src/assets/img/Members/Julio/Photo_Profile_Julio.jpeg'],
+    description: 'Nose',
+    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    skills: [
+      { name: 'Fumar crispy', point: '30/100', lineal: '30' },
+      { name: 'Punteria', point: '100/100', lineal: '100' },
+      { name: 'Besar hombres', point: '10/100', lineal: '10' },
+    ],
   },
   {
     id: 5,
@@ -50,6 +78,13 @@ const members = [
     name: 'Paolo Giardina',
     ago: 21,
     photo: photos['/src/assets/img/Members/Paolo/Photo_Profile_Paolo.png'],
+    description: 'Nose',
+    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    skills: [
+      { name: 'Punteria contra señoras', point: '100/100', lineal: '100' },
+      { name: 'Resistencia contra mordeduras de perro', point: '40/100', lineal: '40' },
+      { name: 'nose 3', point: '100/100', lineal: '80' },
+    ],
   },
   {
     id: 6,
@@ -57,6 +92,13 @@ const members = [
     name: 'Miguel Leal',
     ago: 19,
     photo: photos['/src/assets/img/Members/Miguel/Photo_Profile_Miguel.jpeg'],
+    description: 'Nose',
+    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    skills: [
+      { name: 'Aductor ', point: '-300/100', lineal: '1' },
+      { name: 'Ataca gatitas', point: '70/100', lineal: '70' },
+      { name: 'nose 3', point: '100/100', lineal: '80' },
+    ],
   },
   {
     id: 7,
@@ -64,6 +106,13 @@ const members = [
     name: 'Diego Labrador',
     ago: 19,
     photo: photos['/src/assets/img/Members/Diego L/Photo_Profile_Labrador.jpeg'],
+    description: 'Nose',
+    epic_moments: ['mome 1', 'Quedarse dormido con una caballota', 'mome 3'],
+    skills: [
+      { name: 'Johnny Sins', point: '80/100', lineal: '80' },
+      { name: 'Plata infinita', point: '300/100', lineal: '100' },
+      { name: 'nose 3', point: '100/100', lineal: '80' },
+    ],
   },
   {
     id: 8,
@@ -71,6 +120,13 @@ const members = [
     name: 'Nelson Peñaloza',
     ago: 21,
     photo: photos['/src/assets/img/Members/Nelson/Photo_Profile_Nelson.png'],
+    description: 'Nose',
+    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    skills: [
+      { name: 'Tumor del dedo pulgar', point: '80/100', lineal: '80' },
+      { name: 'Nalgas', point: '30/100', lineal: '30' },
+      { name: 'Recarga al patear', point: '30/100', lineal: '30' },
+    ],
   },
   {
     id: 9,
@@ -78,6 +134,13 @@ const members = [
     name: 'Diego Briceño',
     ago: 19,
     photo: photos['/src/assets/img/Members/Diego B/Photo_Profile_Briceño.png'],
+    description: 'Nose',
+    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    skills: [
+      { name: 'Defensa', point: '100/100', lineal: '100' },
+      { name: 'Fuerza', point: '80/100', lineal: '80' },
+      { name: 'Rapidez al parpadear', point: '80/100', lineal: '80' },
+    ],
   },
   {
     id: 10,
@@ -85,6 +148,13 @@ const members = [
     name: 'Lionel Leon',
     ago: 20,
     photo: photos['/src/assets/img/Members/Lionel/Photo_Profile_Lionel.jpeg'],
+    description: 'Nose',
+    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    skills: [
+      { name: 'P', point: '100/100', lineal: '100' },
+      { name: 'Velocidad', point: '40/100', lineal: '40' },
+      { name: 'nose 3', point: '100/100', lineal: '80' },
+    ],
   },
   {
     id: 11,
@@ -92,6 +162,13 @@ const members = [
     name: 'Jose Angel Barreto',
     ago: 20,
     photo: photos['/src/assets/img/Members/Jose A/Photo_Profile_JoseA.jpeg'],
+    description: 'Sus palabras e ideas cambian el mundo',
+    epic_moments: ['El prime', 'mome 2', 'mome 3'],
+    skills: [
+      { name: 'Habilidad en futbol', point: '20/100', lineal: '20' },
+      { name: 'IQ', point: '-200/100', lineal: '0' },
+      { name: 'Diferenciar entre el Latin/Griego', point: '30/100', lineal: '30' },
+    ],
   },
   {
     id: 12,
@@ -99,6 +176,13 @@ const members = [
     name: 'Santiago Peñaloza',
     ago: 16,
     photo: photos['/src/assets/img/Members/Santiago/Photo_Profile_Santiago.jpeg'],
+    description: 'Nose',
+    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    skills: [
+      { name: 'P', point: '100/100', lineal: '100' },
+      { name: 'Re', point: '40/100', lineal: '40' },
+      { name: 'nose 3', point: '100/100', lineal: '80' },
+    ],
   },
   {
     id: 13,
@@ -106,6 +190,13 @@ const members = [
     name: 'Jesus Perez',
     ago: 19,
     photo: photos['/src/assets/img/Members/Jesus/Photo_Profile_Jesus.png'],
+    description: 'Nose',
+    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    skills: [
+      { name: 'P', point: '100/100', lineal: '100' },
+      { name: 'Re', point: '40/100', lineal: '40' },
+      { name: 'nose 3', point: '100/100', lineal: '80' },
+    ],
   },
 ]
 

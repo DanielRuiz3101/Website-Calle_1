@@ -9,6 +9,9 @@ defineProps({
   ago: Number,
   position: String,
   photo: String,
+  description: String,
+  epic_moments: Array,
+  skills: Array,
 })
 
 const showDetail = ref(false)
@@ -17,7 +20,7 @@ const showDetail = ref(false)
 <template>
   <!--Profile-->
   <div
-    class="relative overflow-hidden rounded-2xl border border-gray-500 shadow-2xl hover:border-[#C59B27] hover:scale-101"
+    class="relative overflow-hidden rounded-2xl border border-gray-500 shadow-2xl hover:border-[#C59B27]"
   >
     <!--Photo Profile-->
     <div class="relative h-56 sm:h-64">
@@ -52,9 +55,10 @@ const showDetail = ref(false)
       v-if="showDetail"
       :apodo="apodo"
       :name="name"
-      :ago="ago"
-      :position="position"
       :photo="photo"
+      :description="description"
+      :epic_moments="epic_moments"
+      :skills="skills"
       @close="showDetail = false"
     />
   </div>
