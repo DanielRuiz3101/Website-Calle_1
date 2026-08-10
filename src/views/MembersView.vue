@@ -229,43 +229,45 @@ const ex_members = [
 </script>
 
 <template>
-  <!--Section Members Current-->
-  <div class="bg-[#25221e]">
-    <section class="px-4 sm:px-6 py-10 sm:py-16 max-w-6xl mx-auto">
-      <!--Title-->
-      <div class="max-w-2xl">
-        <div
-          class="inline-flex items-center gap-2 text-[#C59B27] text-[14px] font-bold brightness-120"
-        >
-          <span class="w-6 h-px bg-[#C59B27]"></span>MIEMBROS
+  <div>
+    <!--Section Members Current-->
+    <div class="bg-[#25221e]">
+      <section class="px-4 sm:px-6 py-10 sm:py-16 max-w-6xl mx-auto">
+        <!--Title-->
+        <div class="max-w-2xl">
+          <div
+            class="inline-flex items-center gap-2 text-[#C59B27] text-[14px] font-bold brightness-120"
+          >
+            <span class="w-6 h-px bg-[#C59B27]"></span>MIEMBROS
+          </div>
         </div>
-      </div>
 
-      <!--Grid Members-->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 sm:mt-12">
-        <ProfileCards v-for="member in members" :key="member.id" v-bind="member" />
-      </div>
-    </section>
-  </div>
-
-  <div class="w-full h-12 bg-linear-to-t from-[#5C554E] to-[#25221e]"></div>
-
-  <!--Section Ex-Members-->
-  <div class="bg-[#5C554E]">
-    <section class="px-4 sm:px-6 py-10 sm:py-16 max-w-6xl mx-auto">
-      <!--Title-->
-      <div class="max-w-2xl">
-        <div
-          class="inline-flex items-center gap-2 text-[#C59B27] text-[14px] font-bold brightness-120"
-        >
-          <span class="w-6 h-px bg-[#C59B27]"></span>EX MIEMBROS
+        <!--Grid Members-->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 sm:mt-12">
+          <ProfileCards v-for="member in members" :key="member.id" v-bind="member" />
         </div>
-      </div>
+      </section>
+    </div>
 
-      <!--Grid Ex-Members-->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 sm:mt-12">
-        <Ex_ProfileCards v-for="ex_member in ex_members" :key="ex_member.id" v-bind="ex_member" />
-      </div>
-    </section>
+    <div class="w-full h-12 bg-linear-to-t from-[#5C554E] to-[#25221e]"></div>
+
+    <!--Section Ex-Members-->
+    <div class="bg-[#5C554E]">
+      <section class="px-4 sm:px-6 py-10 sm:py-16 max-w-6xl mx-auto">
+        <!--Title-->
+        <div class="max-w-2xl">
+          <div
+            class="inline-flex items-center gap-2 text-[#C59B27] text-[14px] font-bold brightness-120"
+          >
+            <span class="w-6 h-px bg-[#C59B27]"></span>EX MIEMBROS
+          </div>
+        </div>
+
+        <!--Grid Ex-Members-->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 sm:mt-12">
+          <Ex_ProfileCards v-for="ex_member in ex_members" :key="ex_member.id" v-bind="ex_member" />
+        </div>
+      </section>
+    </div>
   </div>
 </template>

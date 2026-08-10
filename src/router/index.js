@@ -13,17 +13,17 @@ const router = createRouter({
           component: () => import('../views/HomeView.vue'),
         },
         {
-          path: 'Integrantes',
+          path: 'integrantes',
           name: 'integrantes',
           component: () => import('../views/MembersView.vue'),
         },
         {
-          path: 'Aventuras',
+          path: 'aventuras',
           name: 'aventuras',
           component: () => import('../views/AdventureView.vue'),
         },
         {
-          path: 'Futbol',
+          path: 'futbol',
           name: 'futbol',
           component: () => import('../views/MatchesView.vue'),
         },
