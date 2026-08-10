@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div class="relative w-full h-204.5 md:h-231.75">
+  <div class="relative w-full h-204.5 md:h-230.5">
     <div class="absolute inset-0 z-0">
       <img src="@/assets/img/Family.png" class="w-full h-full object-cover" alt="Foto Grupo" />
       <div class="absolute inset-0 bg-linear-to-t from-black/75 to-black/50"></div>
