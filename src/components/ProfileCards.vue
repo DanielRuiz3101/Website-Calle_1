@@ -12,6 +12,8 @@ defineProps({
   description: String,
   epic_moments: Array,
   skills: Array,
+  gallery: Array,
+  videos: Array,
 })
 
 const showDetail = ref(false)
@@ -59,6 +61,8 @@ const showDetail = ref(false)
       :description="description"
       :epic_moments="epic_moments"
       :skills="skills"
+      :gallery="gallery"
+      :videos="videos"
       @close="showDetail = false"
     />
   </div>
