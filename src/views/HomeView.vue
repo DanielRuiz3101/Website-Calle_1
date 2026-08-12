@@ -25,17 +25,19 @@
 
       <!--Button-->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-        <button
-          class="w-100 bg-[#C59B27] rounded-full font-bold sm:w-auto px-6 py-3.5 hover:scale-105 transition-all duration-250"
+        <router-link
+          to="/integrantes"
+          class="w-90 bg-[#C59B27] rounded-full font-bold text-center sm:w-auto px-6 py-3.5 hover:scale-105 transition-all duration-250"
         >
           MIEMBROS
-        </button>
+        </router-link>
 
-        <button
-          class="w-100 rounded-full border border-gray-100/20 font-bold text-white sm:w-auto px-6 py-3.5 hover:text-[#C59B27] hover:border-[#C59B27] transition-all duration-200"
+        <router-link
+          to="/futbol"
+          class="w-90 rounded-full border border-gray-100/20 font-bold text-white text-center sm:w-auto px-6 py-3.5 hover:text-[#C59B27] hover:border-[#C59B27] transition-all duration-200"
         >
           PARTIDOS
-        </button>
+        </router-link>
       </div>
     </div>
   </div>

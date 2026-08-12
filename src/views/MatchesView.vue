@@ -1,12 +1,42 @@
 <script setup>
-import { computed } from 'vue'
-import { Circle } from '@lucide/vue'
+import { computed, ref } from 'vue'
+import { Circle, ChevronDown } from '@lucide/vue'
+import formacionNormal from '@/assets/img/Formacion.png'
+import formacionNegativa from '@/assets/img/Formacion_negativa.PNG'
 
-const matches = [
-  { id: 1, rival: 'Equipo Alfa', gf: 3, ga: 1 },
-  { id: 2, rival: 'Equipo Beta', gf: 0, ga: 2 },
-  { id: 3, rival: 'Equipo Gamma', gf: 2, ga: 2 },
-]
+const formations = {
+  normal: {
+    label: 'Equipo Oficial',
+    image: formacionNormal,
+    matches: [
+      { id: 1, rival: 'Equipo Alfa', gf: 3, ga: 1 },
+      { id: 2, rival: 'Equipo Beta', gf: 0, ga: 2 },
+      { id: 3, rival: 'Equipo Gamma', gf: 2, ga: 2 },
+    ],
+  },
+  negativa: {
+    label: 'Equipo Negativa',
+    image: formacionNegativa,
+    matches: [
+      { id: 1, rival: 'Clasico', gf: 5, ga: 3 },
+      { id: 2, rival: 'Clasico', gf: 7, ga: 7 },
+      { id: 3, rival: 'Clasico', gf: 8, ga: 6 },
+      { id: 4, rival: 'Clasico', gf: 4, ga: 1 },
+      { id: 5, rival: 'Clasico', gf: 6, ga: 7 },
+      { id: 6, rival: 'Clasico', gf: 8, ga: 5 },
+    ],
+  },
+}
+
+const selectedFormation = ref('normal')
+const showFormationMenu = ref(false)
+
+const currentFormation = computed(() => formations[selectedFormation.value])
+
+const selectFormation = (key) => {
+  selectedFormation.value = key
+  showFormationMenu.value = false
+}
 
 const resultOf = (match) => {
   if (match.gf > match.ga)
@@ -15,12 +45,15 @@ const resultOf = (match) => {
   return { label: 'Empate', color: 'bg-gray-500', dot: 'text-gray-500' }
 }
 
-const stats = computed(() => ({
-  wins: matches.filter((m) => m.gf > m.ga).length,
-  losses: matches.filter((m) => m.gf < m.ga).length,
-  draws: matches.filter((m) => m.gf === m.ga).length,
-  goals: matches.reduce((sum, m) => sum + m.gf, 0),
-}))
+const stats = computed(() => {
+  const matches = currentFormation.value.matches
+  return {
+    wins: matches.filter((m) => m.gf > m.ga).length,
+    losses: matches.filter((m) => m.gf < m.ga).length,
+    draws: matches.filter((m) => m.gf === m.ga).length,
+    goals: matches.reduce((sum, m) => sum + m.gf, 0),
+  }
+})
 </script>
 
 <template>
@@ -82,9 +115,9 @@ const stats = computed(() => ({
       </div>
 
       <!--Matches-->
-      <div class="space-y-2 w-100 sm:w-full">
+      <div class="space-y-2 w-90 sm:w-full">
         <div
-          v-for="match in matches"
+          v-for="match in currentFormation.matches"
           :key="match.id"
           class="flex items-center justify-between rounded-xl px-4 py-3.5 bg-black border border-gray-600"
         >
@@ -115,16 +148,48 @@ const stats = computed(() => ({
     ></div>
 
     <!--Section Formation-->
-    <section class="flex flex-col flex-1 gap-6 max-w-2xl mx-auto px-4 sm:px-6 py-8 sm:py-10">
-      <!--Title-->
-      <div
-        class="inline-flex items-center gap-2 text-[#C59B27] text-[14px] font-bold brightness-120"
-      >
-        <span class="w-6 h-px bg-[#C59B27]"></span>FORMACION
+    <section class="flex flex-col flex-1 gap-6 max-w-2xl mx-auto px-4 sm:px-6 py-8">
+      <div class="flex justify-between">
+        <!--Title-->
+        <div
+          class="inline-flex items-center gap-2 text-[#C59B27] text-[14px] font-bold brightness-120"
+        >
+          <span class="w-6 h-px bg-[#C59B27]"></span>FORMACION
+        </div>
+
+        <!-- Select Formation -->
+        <div class="relative mt-4 inline-block">
+          <button
+            @click="showFormationMenu = !showFormationMenu"
+            class="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold text-[#C59B27] border border-[#C59B27] hover:bg-[#C59B27]/10 transition-colors duration-200"
+          >
+            {{ currentFormation.label }}
+            <ChevronDown class="w-4 h-4" />
+          </button>
+
+          <div
+            v-if="showFormationMenu"
+            class="absolute left-0 top-full w-38 mt-2 rounded-xl bg-black border border-gray-600 overflow-hidden shadow-2xl z-20"
+          >
+            <button
+              v-for="(formation, key) in formations"
+              :key="key"
+              @click="selectFormation(key)"
+              :class="[
+                selectedFormation === key
+                  ? 'text-[#C59B27] bg-[#C59B27]/10'
+                  : 'text-gray-400 hover:text-white hover:bg-gray-100/10',
+              ]"
+              class="flex w-full items-center gap-2 px-4 py-3 text-sm font-bold transition-colors duration-200"
+            >
+              {{ formation.label }}
+            </button>
+          </div>
+        </div>
       </div>
 
       <img
-        src="@/assets/img/Formacion.png"
+        :src="currentFormation.image"
         alt="Formacion"
         class="w-full rounded-2xl border border-[#C59B27] lg:h-[calc(100vh-10rem)] lg:w-auto lg:mx-auto lg:object-contain"
       />

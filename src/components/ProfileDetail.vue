@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { X } from '@lucide/vue'
 import { Trophy } from '@lucide/vue'
+import { Maximize2 } from '@lucide/vue'
 
 defineProps({
   apodo: String,
@@ -25,7 +26,7 @@ const zoomedVideo = ref(null)
   <div
     class="fixed inset-0 z-40 backdrop-blur-xl bg-black/40 flex items-center justify-center p-4 sm:p-4"
   >
-    <div class="relative w-full max-w-lg overflow-hidden rounded-2xl border border-gray-500">
+    <div class="relative w-full max-w-lg overflow-hidden mb-8 rounded-2xl border border-gray-500">
       <!--Photo-->
       <div>
         <!--Button Exit-->
@@ -141,15 +142,23 @@ const zoomedVideo = ref(null)
           <div
             v-for="(video, index) in videos"
             :key="index"
-            class="relative overflow-hidden rounded-lg border border-gray-600 cursor-pointer"
+            class="relative overflow-hidden rounded-lg border border-gray-600"
           >
             <video
               :src="video"
               controls
               preload="none"
-              class="w-full rounded-lg border border-gray-600"
-              @click="zoomedVideo = video"
+              class="w-full rounded-lg"
             ></video>
+
+            <!--Expand Button-->
+            <button
+              @click="zoomedVideo = video"
+              class="absolute top-2 right-2 flex items-center justify-center w-8 h-8 rounded-full bg-black/60 text-white hover:bg-black border border-gray-500 transition-all duration-120"
+              title="Ampliar video"
+            >
+              <Maximize2 class="w-4 h-4" />
+            </button>
           </div>
         </div>
 
@@ -182,11 +191,6 @@ const zoomedVideo = ref(null)
     class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 cursor-zoom-out"
     @click="zoomedVideo = null"
   >
-    <video
-      :src="zoomedVideo"
-      controls
-      autoplay
-      class="max-w-full max-h-full rounded-xl"
-    ></video>
+    <video :src="zoomedVideo" controls autoplay class="max-w-full max-h-full rounded-xl"></video>
   </div>
 </template>
