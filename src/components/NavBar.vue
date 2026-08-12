@@ -31,7 +31,7 @@ const links = [
         :to="link.path"
         :class="[
           isActive(link.path)
-            ? 'text-black bg-[#C59B27] brightness-110'
+            ? 'text-black bg-[#C59B27]'
             : 'text-gray-400 hover:text-white hover:bg-gray-100/10',
         ]"
         class="flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200"
@@ -50,7 +50,7 @@ const links = [
       v-for="link in links"
       :key="link.path"
       :to="link.path"
-      :class="isActive(link.path) ? 'text-[#C59B27] brightness-115' : 'text-gray-400'"
+      :class="isActive(link.path) ? 'text-[#C59B27]' : 'text-gray-400'"
       class="flex flex-col items-center justify-center gap-1 py-2.5 transition-all duration-120"
     >
       <component :is="link.icon" class="w-5 h-5" />

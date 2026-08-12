@@ -12,13 +12,15 @@
     >
       <!--BoxDate-->
       <div
-        class="inline-flex px-3 py-1.5 rounded-full bg-[#C59B27]/30 border border-[#C59B27] brightness-110 text-[#D4AF37] text-xs font-bold sm:text-sm mb-6"
+        class="inline-flex px-3 py-1.5 rounded-full bg-[#C59B27]/30 border border-[#C59B27] text-[#C59B27] text-xs font-bold sm:text-sm mb-6"
       >
         Desde 2017 · Actualidad
       </div>
 
       <!--Title-->
-      <h1 class="uppercase text-white text-[50px] font-extrabold sm:text-7xl md:text-[144px] mb-4">
+      <h1
+        class="uppercase text-white text-[50px] font-extrabold tracking-wide sm:text-7xl md:text-[120px] mb-6 font-display leading-none"
+      >
         CALLE 1
         <span class="text-[#C59B27]">FC</span>
       </h1>

@@ -26,7 +26,9 @@ const zoomedVideo = ref(null)
   <div
     class="fixed inset-0 z-40 backdrop-blur-xl bg-black/40 flex items-center justify-center p-4 sm:p-4"
   >
-    <div class="relative w-full max-w-lg overflow-hidden mb-8 rounded-2xl border border-gray-500">
+    <div
+      class="relative w-full max-w-lg max-h-[90vh] overflow-y-auto rounded-2xl border border-gray-500"
+    >
       <!--Photo-->
       <div>
         <!--Button Exit-->
@@ -44,7 +46,7 @@ const zoomedVideo = ref(null)
       </div>
 
       <!--Button-->
-      <div class="flex bg-black text-sm font-bold brightness-130">
+      <div class="flex bg-[#1B1917] text-sm font-bold">
         <!--Perfil-->
         <button
           @click="activeTab = 'perfil'"
@@ -73,7 +75,10 @@ const zoomedVideo = ref(null)
       </div>
 
       <!--Info-->
-      <div v-if="activeTab === 'perfil'" class="p-4 sm:p-6 space-y-4 bg-black">
+      <div
+        v-if="activeTab === 'perfil'"
+        class="p-4 sm:p-6 space-y-4 bg-[#1B1917] tab-panel"
+      >
         <!--Description-->
         <div class="flex gap-3">
           <div class="w-0.5 h-6.5 rounded-full bg-[#C59B27]"></div>
@@ -82,30 +87,33 @@ const zoomedVideo = ref(null)
 
         <!--Skills-->
         <div class="space-y-3">
-          <span class="text-xs text-gray-500 font-bold tracking-wider brightness-130"
+          <span class="text-xs text-gray-500 font-bold tracking-wider"
             >HABILIDADES</span
           >
           <div v-for="skill in skills" :key="skill.name" class="mt-2">
             <div class="flex items-center justify-between font-medium">
               <span class="mb-1 text-sm text-white">{{ skill.name }}</span>
-              <span class="mb-1 text-xs text-gray-500">{{ skill.point }}</span>
+              <span
+                class="mb-1 text-xs font-bold px-2 py-0.5 rounded-full border border-gray-600 text-gray-300"
+                >{{ skill.point }}</span
+              >
             </div>
 
             <div
               :style="{ width: skill.lineal + '%' }"
-              class="h-1.5 overflow-hidden rounded-full bg-[#C59B27] brightness-130"
+              class="h-1.5 overflow-hidden rounded-full bg-[#C59B27]"
             ></div>
           </div>
         </div>
 
         <!--Historic Moments-->
         <div class="border border-[#C59B27] bg-[#25221e] rounded-lg p-2">
-          <div class="flex items-center gap-2 text-[#C59B27] font-semibold brightness-130">
+          <div class="flex items-center gap-2 text-[#C59B27] font-semibold">
             <Trophy class="w-5 h-5" />
-            <span class="">MOMENTOS HISTORICOS</span>
+            <span class="shimmer-text">MOMENTOS HISTORICOS</span>
           </div>
 
-          <ul class="mt-2 space-y-2 brightness-130">
+          <ul class="mt-2 space-y-2">
             <li
               v-for="moment in epic_moments"
               :key="moment.id"
@@ -119,7 +127,10 @@ const zoomedVideo = ref(null)
       </div>
 
       <!--Gallery-->
-      <div v-else-if="activeTab === 'galeria'" class="p-4 sm:p-6 bg-black space-y-4">
+      <div
+        v-else-if="activeTab === 'galeria'"
+        class="p-4 sm:p-6 bg-[#1B1917] space-y-4 tab-panel"
+      >
         <!--Photos-->
         <div v-if="gallery && gallery.length" class="grid grid-cols-2 gap-2">
           <div
@@ -194,3 +205,34 @@ const zoomedVideo = ref(null)
     <video :src="zoomedVideo" controls autoplay class="max-w-full max-h-full rounded-xl"></video>
   </div>
 </template>
+
+<style scoped>
+.tab-panel {
+  animation: fade-in 0.25s ease;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #c59b27 25%, #ffe9a8 50%, #c59b27 75%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer-sweep 2.5s linear infinite;
+}
+@keyframes shimmer-sweep {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+</style>

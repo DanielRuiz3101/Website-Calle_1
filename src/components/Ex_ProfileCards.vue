@@ -18,9 +18,9 @@ defineProps({
     </div>
 
     <!--Description-->
-    <div class="p-4 sm:p-5 bg-black">
+    <div class="p-4 sm:p-5 bg-[#1B1917]">
       <!--Apodo-->
-      <div class="text-3xl font-black text-[#898989] brightness-90">{{ apodo }}</div>
+      <div class="text-3xl font-black text-[#898989] font-display">{{ apodo }}</div>
 
       <!--Name-->
       <div class="font-semibold text-sm text-white sm:text-base">{{ name }}, {{ ago }} años</div>

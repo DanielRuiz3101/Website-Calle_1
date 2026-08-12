@@ -193,6 +193,7 @@ const members = [
     apodo: 'El Toro',
     name: 'Diego Briceño',
     ago: 19,
+    position: 'Defensa',
     photo: photos['/src/assets/img/Members/Diego B/Photo_Profile_Briceño.png'],
     gallery: galleryFor('Diego B'),
     videos: videosFor('Diego B'),
@@ -316,9 +317,7 @@ const ex_members = [
       <section class="px-4 sm:px-6 py-10 sm:py-16 max-w-6xl mx-auto">
         <!--Title-->
         <div class="max-w-2xl">
-          <div
-            class="inline-flex items-center gap-2 text-[#C59B27] text-[14px] font-bold brightness-120"
-          >
+          <div class="inline-flex items-center gap-2 text-[#C59B27] text-[14px] font-bold">
             <span class="w-6 h-px bg-[#C59B27]"></span>MIEMBROS
           </div>
         </div>
@@ -337,9 +336,7 @@ const ex_members = [
       <section class="px-4 sm:px-6 py-10 sm:py-16 max-w-6xl mx-auto">
         <!--Title-->
         <div class="max-w-2xl">
-          <div
-            class="inline-flex items-center gap-2 text-[#C59B27] text-[14px] font-bold brightness-120"
-          >
+          <div class="inline-flex items-center gap-2 text-[#C59B27] text-[14px] font-bold">
             <span class="w-6 h-px bg-[#C59B27]"></span>EX MIEMBROS
           </div>
         </div>

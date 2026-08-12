@@ -61,9 +61,7 @@ const stats = computed(() => {
     <!--Section Record-->
     <section class="flex flex-col flex-1 gap-6 max-w-2xl mx-auto text-white sm:px-6 py-8 sm:py-10">
       <!--Title-->
-      <div
-        class="inline-flex items-center gap-2 text-[#C59B27] text-[14px] font-bold brightness-120"
-      >
+      <div class="inline-flex items-center gap-2 text-[#C59B27] text-[14px] font-bold">
         <span class="w-6 h-px bg-[#C59B27]"></span>HISTORIAL
       </div>
 
@@ -71,46 +69,34 @@ const stats = computed(() => {
       <div class="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:mb-8">
         <!--Wins-->
         <div
-          class="flex flex-col items-center justify-center rounded-2xl bg-black border border-gray-600 p-4 sm:p-6"
+          class="flex flex-col items-center justify-center rounded-2xl bg-[#1B1917] border border-gray-600 p-4 sm:p-6"
         >
-          <span class="text-4xl text-green-500 font-black sm:text-5xl brightness-130">{{
-            stats.wins
-          }}</span>
-          <span class="text-xs text-gray-500 font-bold tracking-widest brightness-130"
-            >VICTORIAS</span
-          >
+          <span class="text-4xl text-green-500 font-black sm:text-5xl">{{ stats.wins }}</span>
+          <span class="text-xs text-gray-500 font-bold tracking-widest">VICTORIAS</span>
         </div>
 
         <!--Lose-->
         <div
-          class="flex flex-col items-center justify-center rounded-2xl bg-black border border-gray-600 p-4 sm:p-6 text-center"
+          class="flex flex-col items-center justify-center rounded-2xl bg-[#1B1917] border border-gray-600 p-4 sm:p-6 text-center"
         >
-          <span class="text-4xl text-red-700 font-black sm:text-5xl brightness-130">{{
-            stats.losses
-          }}</span>
-          <span class="text-xs text-gray-500 font-bold tracking-widest brightness-130"
-            >DERROTAS</span
-          >
+          <span class="text-4xl text-red-700 font-black sm:text-5xl">{{ stats.losses }}</span>
+          <span class="text-xs text-gray-500 font-bold tracking-widest">DERROTAS</span>
         </div>
 
         <!--Draw-->
         <div
-          class="flex flex-col items-center justify-center rounded-2xl bg-black border border-gray-600 p-4 sm:p-6 text-center"
+          class="flex flex-col items-center justify-center rounded-2xl bg-[#1B1917] border border-gray-600 p-4 sm:p-6 text-center"
         >
-          <span class="text-4xl font-black sm:text-5xl brightness-130">{{ stats.draws }}</span>
-          <span class="text-xs text-gray-500 font-bold tracking-widest brightness-130"
-            >EMPATES</span
-          >
+          <span class="text-4xl font-black sm:text-5xl">{{ stats.draws }}</span>
+          <span class="text-xs text-gray-500 font-bold tracking-widest">EMPATES</span>
         </div>
 
         <!--Goles-->
         <div
-          class="flex flex-col items-center justify-center rounded-2xl bg-black border border-gray-600 p-4 sm:p-6 text-center"
+          class="flex flex-col items-center justify-center rounded-2xl bg-[#1B1917] border border-gray-600 p-4 sm:p-6 text-center"
         >
-          <span class="text-4xl text-[#C59B27] font-black sm:text-5xl brightness-130">{{
-            stats.goals
-          }}</span>
-          <span class="text-xs text-gray-500 font-bold tracking-widest brightness-130">GOLES</span>
+          <span class="text-4xl text-[#C59B27] font-black sm:text-5xl">{{ stats.goals }}</span>
+          <span class="text-xs text-gray-500 font-bold tracking-widest">GOLES</span>
         </div>
       </div>
 
@@ -119,7 +105,7 @@ const stats = computed(() => {
         <div
           v-for="match in currentFormation.matches"
           :key="match.id"
-          class="flex items-center justify-between rounded-xl px-4 py-3.5 bg-black border border-gray-600"
+          class="flex items-center justify-between rounded-xl px-4 py-3.5 bg-[#1B1917] border border-gray-600"
         >
           <div class="flex items-center gap-3 min-w-0">
             <Circle class="w-2 h-2" :class="resultOf(match).dot" fill="currentColor" />
@@ -144,16 +130,14 @@ const stats = computed(() => {
     </section>
 
     <div
-      class="w-3/4 mx-auto h-1 rounded-full bg-[#C59B27] lg:w-1 lg:h-auto lg:self-stretch lg:my-10 lg:mx-0"
+      class="w-3/4 mx-auto h-1 rounded-full bg-[#C59B27] lg:w-2 lg:h-auto lg:self-stretch lg:my-10 lg:mx-0"
     ></div>
 
     <!--Section Formation-->
     <section class="flex flex-col flex-1 gap-6 max-w-2xl mx-auto px-4 sm:px-6 py-8">
       <div class="flex justify-between">
         <!--Title-->
-        <div
-          class="inline-flex items-center gap-2 text-[#C59B27] text-[14px] font-bold brightness-120"
-        >
+        <div class="inline-flex items-center gap-2 text-[#C59B27] text-[14px] font-bold">
           <span class="w-6 h-px bg-[#C59B27]"></span>FORMACION
         </div>
 

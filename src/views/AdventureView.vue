@@ -70,7 +70,7 @@ const adventures = [
       <!--Title Main-->
       <div class="max-w-2xl">
         <div
-          class="inline-flex items-center gap-2 text-[#C59B27] text-[14px] font-bold brightness-120"
+          class="inline-flex items-center gap-2 text-[#C59B27] text-[14px] font-bold"
         >
           <span class="w-6 h-px bg-[#C59B27]"></span>AVENTURAS
         </div>
@@ -79,7 +79,11 @@ const adventures = [
       <!--Div Adventure-Individual-->
       <div v-for="adventure in adventures" :key="adventure.name" class="mt-8">
         <!--Title Second-->
-        <div class="text-white font-bold">{{ adventure.name }}</div>
+        <div
+          class="inline-flex items-center gap-2 text-white font-bold uppercase tracking-widest text-sm"
+        >
+          <span class="w-4 h-px bg-[#C59B27]"></span>{{ adventure.name }}
+        </div>
 
         <!--Grid Photo-->
         <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
@@ -90,7 +94,11 @@ const adventures = [
             @click="openPhoto(photo)"
           >
             <div class="relative h-56 sm:h-64">
-              <img :src="photo" :alt="adventure.name" class="w-full h-full object-cover" />
+              <img
+                :src="photo"
+                :alt="adventure.name"
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
               <div
                 class="absolute top-54 w-full h-10 bg-linear-to-t from-black to-transparent"
               ></div>
