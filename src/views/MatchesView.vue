@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 import { Circle, ChevronDown } from '@lucide/vue'
 import formacionNormal from '@/assets/img/Formacion.png'
-import formacionNegativa from '@/assets/img/Formacion_negativa.PNG'
+import formacionNegativa from '@/assets/img/Formacion_negativa.png'
 
 const formations = {
   normal: {
