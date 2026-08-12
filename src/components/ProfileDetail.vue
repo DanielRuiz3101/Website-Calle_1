@@ -1,4 +1,5 @@
 <script setup>
+import { ref } from 'vue'
 import { X } from '@lucide/vue'
 import { Trophy } from '@lucide/vue'
 
@@ -9,9 +10,13 @@ defineProps({
   description: String,
   epic_moments: Array,
   skills: Array,
+  gallery: Array,
+  videos: Array,
 })
 
 const emit = defineEmits(['close'])
+
+const activeTab = ref('perfil')
 </script>
 
 <template>
@@ -36,24 +41,36 @@ const emit = defineEmits(['close'])
       </div>
 
       <!--Button-->
-      <div class="flex bg-black text-sm text-gray-500 font-bold brightness-130">
-        <!--Info-->
+      <div class="flex bg-black text-sm font-bold brightness-130">
+        <!--Perfil-->
         <button
-          class="flex-1 py-3 border-b border-gray-500 uppercase hover:text-white transition-colors duration-200"
+          @click="activeTab = 'perfil'"
+          :class="[
+            activeTab === 'perfil'
+              ? 'text-[#C59B27] border-[#C59B27]'
+              : 'text-gray-500 border-gray-500 hover:text-white',
+          ]"
+          class="flex-1 py-3 border-b-2 uppercase transition-colors duration-200"
         >
           Perfil
         </button>
 
-        <!--Grid Photo-->
+        <!--Galeria-->
         <button
-          class="flex-1 py-3 border-b border-gray-500 uppercase hover:text-white transition-colors duration-200"
+          @click="activeTab = 'galeria'"
+          :class="[
+            activeTab === 'galeria'
+              ? 'text-[#C59B27] border-[#C59B27]'
+              : 'text-gray-500 border-gray-500 hover:text-white',
+          ]"
+          class="flex-1 py-3 border-b-2 uppercase transition-colors duration-200"
         >
           Galeria
         </button>
       </div>
 
       <!--Info-->
-      <div class="p-4 sm:p-6 space-y-4 bg-black">
+      <div v-if="activeTab === 'perfil'" class="p-4 sm:p-6 space-y-4 bg-black">
         <!--Description-->
         <div class="flex gap-3">
           <div class="w-0.5 h-6.5 rounded-full bg-[#C59B27]"></div>
@@ -96,6 +113,39 @@ const emit = defineEmits(['close'])
             </li>
           </ul>
         </div>
+      </div>
+
+      <!--Gallery-->
+      <div v-else-if="activeTab === 'galeria'" class="p-4 sm:p-6 bg-black space-y-4">
+        <!--Photos-->
+        <div v-if="gallery && gallery.length" class="grid grid-cols-2 gap-2">
+          <div
+            v-for="(image, index) in gallery"
+            :key="index"
+            class="relative overflow-hidden rounded-lg border border-gray-600"
+          >
+            <img :src="image" alt="Foto" loading="lazy" class="w-full h-32 object-cover" />
+          </div>
+        </div>
+
+        <!--Videos-->
+        <div v-if="videos && videos.length" class="grid grid-cols-1 gap-2">
+          <video
+            v-for="(video, index) in videos"
+            :key="index"
+            :src="video"
+            controls
+            preload="none"
+            class="w-full rounded-lg border border-gray-600"
+          ></video>
+        </div>
+
+        <p
+          v-if="(!gallery || !gallery.length) && (!videos || !videos.length)"
+          class="text-sm text-gray-500 text-center py-8"
+        >
+          No hay fotos en la galería
+        </p>
       </div>
     </div>
   </div>

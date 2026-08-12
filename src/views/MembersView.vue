@@ -8,6 +8,11 @@ const photos = import.meta.glob('@/assets/img/Members/*/*', {
   import: 'default',
 })
 
+const galleryFor = (folder) =>
+  Object.keys(photos)
+    .filter((key) => key.includes(`/Members/${folder}/`) && !key.includes('Photo_Profile'))
+    .map((key) => photos[key])
+
 const ex_photos = import.meta.glob('@/assets/img/Ex_Members/*', {
   eager: true,
   query: '?url',
@@ -22,12 +27,19 @@ const members = [
     ago: 24,
     position: 'Retirado',
     photo: photos['/src/assets/img/Members/Daniel/Photo_Profile_Daniel.png'],
-    description: 'Nose',
-    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    gallery: galleryFor('Daniel'),
+    videos: [ // Pega aqui las URLs de Google Drive para videos
+    ],
+    description: 'Sueter de oso polar',
+    epic_moments: [
+      'Pegarle un pepazo en la sien a una señora',
+      'Perseguido y mordidos por perros',
+      'Se caso Maria Daniela',
+    ],
     skills: [
       { name: 'Punteria contra señoras', point: '100/100', lineal: '100' },
-      { name: 'Resistencia contra mordeduras de perro', point: '40/100', lineal: '40' },
-      { name: 'nose 3', point: '100/100', lineal: '80' },
+      { name: 'Resistencia contra mordeduras de perros', point: '30/100', lineal: '30' },
+      { name: 'Skill Futbolistico', point: '150%', lineal: '100' },
     ],
   },
   {
@@ -36,12 +48,19 @@ const members = [
     name: 'Pedro González',
     ago: 21,
     photo: photos['/src/assets/img/Members/Pedro/Photo_Profile_Pedro.png'],
-    description: 'Nose',
-    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    gallery: galleryFor('Pedro'),
+    videos: [ // Pega aqui las URLs de Google Drive para videos
+    ],
+    description: 'Bruja Nocturna y sus esbirros',
+    epic_moments: [
+      'Se quedo dormido al lado con la prima de Samuel',
+      'Se caso Maria Esther',
+      'Shorcito le dio un palazo ',
+    ],
     skills: [
       { name: 'Vidente', point: '40/100', lineal: '40' },
-      { name: 'Espiritismo', point: '200/100', lineal: '100' },
-      { name: 'Pelos', point: '10/100', lineal: '10' },
+      { name: 'Espiritismo', point: '200%', lineal: '100' },
+      { name: 'Crecimiento de pelos', point: '-50/100', lineal: '2' },
     ],
   },
   {
@@ -50,12 +69,15 @@ const members = [
     name: 'Jose González',
     ago: 19,
     photo: photos['/src/assets/img/Members/Jose G/Photo_Profile_Jose.png'],
-    description: 'Nose',
-    epic_moments: ['Chocar contra un porton en pedregal', 'mome 2', 'mome 3'],
+    gallery: galleryFor('Jose G'),
+    videos: [ // Pega aqui las URLs de Google Drive para videos
+    ],
+    description: 'Neptuniano "El Hombre de la Verdad" (Orlandito)',
+    epic_moments: ['Chocar contra un porton en pedregal', 'Se empato con Albani', 'Mili Pili'],
     skills: [
       { name: 'Columna de hierro', point: '70/100', lineal: '70' },
       { name: 'Amante de la piedra', point: '90/100', lineal: '90' },
-      { name: 'nose 3', point: '100/100', lineal: '80' },
+      { name: 'Limpiar queso con gusanos', point: '10/100', lineal: '10' },
     ],
   },
   {
@@ -64,12 +86,15 @@ const members = [
     name: 'Julio Martinez',
     ago: 22,
     photo: photos['/src/assets/img/Members/Julio/Photo_Profile_Julio.jpeg'],
-    description: 'Nose',
-    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    gallery: galleryFor('Julio'),
+    videos: [ // Pega aqui las URLs de Google Drive para videos
+    ],
+    description: 'Simplemente Julio',
+    epic_moments: ['Shorcito le metió una demanda', 'Historial con Crisly', 'Desmayado por Lionel'],
     skills: [
       { name: 'Fumar crispy', point: '30/100', lineal: '30' },
       { name: 'Punteria', point: '100/100', lineal: '100' },
-      { name: 'Besar hombres', point: '10/100', lineal: '10' },
+      { name: 'Besar hombres negros', point: '30/100', lineal: '30' },
     ],
   },
   {
@@ -78,12 +103,20 @@ const members = [
     name: 'Paolo Giardina',
     ago: 21,
     photo: photos['/src/assets/img/Members/Paolo/Photo_Profile_Paolo.png'],
-    description: 'Nose',
-    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    gallery: galleryFor('Paolo'),
+    videos: [ // Pega aqui las URLs de Google Drive para videos
+    ],
+    description: 'A veces Sardina, otra veces Pierna Parentesis',
+    epic_moments: [
+      'Historial con Maria Paoli',
+      'La Promesa',
+      'Raspon de nalga en la bicicleta',
+      'Coñazo con Nelson y Calvito',
+    ],
     skills: [
-      { name: 'Punteria contra señoras', point: '100/100', lineal: '100' },
-      { name: 'Resistencia contra mordeduras de perro', point: '40/100', lineal: '40' },
-      { name: 'nose 3', point: '100/100', lineal: '80' },
+      { name: 'Hablar italiano', point: '3/100', lineal: '3' },
+      { name: 'Aburrimiento excesivo', point: '1000%', lineal: '100' },
+      { name: 'Celibato', point: '300%', lineal: '100' },
     ],
   },
   {
@@ -92,12 +125,19 @@ const members = [
     name: 'Miguel Leal',
     ago: 19,
     photo: photos['/src/assets/img/Members/Miguel/Photo_Profile_Miguel.jpeg'],
-    description: 'Nose',
-    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    gallery: galleryFor('Miguel'),
+    videos: [ // Pega aqui las URLs de Google Drive para videos
+    ],
+    description: 'Power Ranger Negro y Chapoteador',
+    epic_moments: [
+      'Hactrick con gordas',
+      'Le reventaron la nariz en la cancha',
+      'Rodeao por una manada de perros',
+    ],
     skills: [
       { name: 'Aductor ', point: '-300/100', lineal: '1' },
-      { name: 'Ataca gatitas', point: '70/100', lineal: '70' },
-      { name: 'nose 3', point: '100/100', lineal: '80' },
+      { name: 'Ataca gatitas/primas', point: '70/100', lineal: '70' },
+      { name: 'Insultar a Barretonto', point: '∞', lineal: '100' },
     ],
   },
   {
@@ -106,12 +146,19 @@ const members = [
     name: 'Diego Labrador',
     ago: 19,
     photo: photos['/src/assets/img/Members/Diego L/Photo_Profile_Labrador.jpeg'],
-    description: 'Nose',
-    epic_moments: ['mome 1', 'Quedarse dormido con una caballota', 'mome 3'],
+    gallery: galleryFor('Diego L'),
+    videos: [ // Pega aqui las URLs de Google Drive para videos
+    ],
+    description: 'Maestro de la anatomia',
+    epic_moments: [
+      'Historial con Alejandra y Leonor',
+      'Quedarse dormido con una caballota',
+      'Participante en el choque multiple extremo de bicicleta',
+    ],
     skills: [
       { name: 'Johnny Sins', point: '80/100', lineal: '80' },
-      { name: 'Plata infinita', point: '300/100', lineal: '100' },
-      { name: 'nose 3', point: '100/100', lineal: '80' },
+      { name: 'Plata infinita', point: '300%', lineal: '100' },
+      { name: 'Pareja duradera', point: '-200/100', lineal: '2' },
     ],
   },
   {
@@ -120,12 +167,15 @@ const members = [
     name: 'Nelson Peñaloza',
     ago: 21,
     photo: photos['/src/assets/img/Members/Nelson/Photo_Profile_Nelson.png'],
-    description: 'Nose',
-    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    gallery: galleryFor('Nelson'),
+    videos: [ // Pega aqui las URLs de Google Drive para videos
+    ],
+    description: 'Roba niños o saco de hueso',
+    epic_moments: ['Vomitado a que el gordo', 'Bailalo Rocky', 'Shores Inamovibles'],
     skills: [
-      { name: 'Tumor del dedo pulgar', point: '80/100', lineal: '80' },
-      { name: 'Nalgas', point: '30/100', lineal: '30' },
-      { name: 'Recarga al patear', point: '30/100', lineal: '30' },
+      { name: 'Tumor del dedo', point: '80/100', lineal: '80' },
+      { name: 'Nalgas', point: '10/100', lineal: '10' },
+      { name: 'Tiempo de recarga', point: '30/100', lineal: '30' },
     ],
   },
   {
@@ -134,12 +184,16 @@ const members = [
     name: 'Diego Briceño',
     ago: 19,
     photo: photos['/src/assets/img/Members/Diego B/Photo_Profile_Briceño.png'],
-    description: 'Nose',
-    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    gallery: galleryFor('Diego B'),
+    videos: [ // Pega aqui las URLs de Google Drive para videos
+    ],
+    description: 'Toro Pro Max Follador 3000',
+    epic_moments: ['Se reventó el ojo con un alambre', 'Correr con un vacio de cerveza'],
     skills: [
       { name: 'Defensa', point: '100/100', lineal: '100' },
       { name: 'Fuerza', point: '80/100', lineal: '80' },
       { name: 'Rapidez al parpadear', point: '80/100', lineal: '80' },
+      { name: 'Domesticado', point: '300%', lineal: '100' },
     ],
   },
   {
@@ -148,12 +202,19 @@ const members = [
     name: 'Lionel Leon',
     ago: 20,
     photo: photos['/src/assets/img/Members/Lionel/Photo_Profile_Lionel.jpeg'],
-    description: 'Nose',
-    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    gallery: galleryFor('Lionel'),
+    videos: [ // Pega aqui las URLs de Google Drive para videos
+    ],
+    description: 'Experto en el 3 dedo/Gloria Deportiva',
+    epic_moments: [
+      'Historial con Maria Belen y Adriana',
+      'Desastre en Yara',
+      'Participante en el choque multiple extremo de bicicleta',
+    ],
     skills: [
-      { name: 'P', point: '100/100', lineal: '100' },
-      { name: 'Velocidad', point: '40/100', lineal: '40' },
-      { name: 'nose 3', point: '100/100', lineal: '80' },
+      { name: 'Control con tres dedos', point: '-1000/100', lineal: '1' },
+      { name: 'Pelarse las nalgas', point: '300%', lineal: '100' },
+      { name: 'Cepillado', point: '3000%', lineal: '100' },
     ],
   },
   {
@@ -162,11 +223,14 @@ const members = [
     name: 'Jose Angel Barreto',
     ago: 20,
     photo: photos['/src/assets/img/Members/Jose A/Photo_Profile_JoseA.jpeg'],
-    description: 'Sus palabras e ideas cambian el mundo',
-    epic_moments: ['El prime', 'mome 2', 'mome 3'],
+    gallery: galleryFor('Jose A'),
+    videos: [ // Pega aqui las URLs de Google Drive para videos
+    ],
+    description: 'Sus palabras e ideas cambian el mundo / Evaluador de la crianza',
+    epic_moments: ['Borracho del Gol', 'Robo de Torta', 'Tocame aqui'],
     skills: [
       { name: 'Habilidad en futbol', point: '20/100', lineal: '20' },
-      { name: 'IQ', point: '-200/100', lineal: '0' },
+      { name: 'IQ', point: '-200/100', lineal: '1' },
       { name: 'Diferenciar entre el Latin/Griego', point: '30/100', lineal: '30' },
     ],
   },
@@ -176,12 +240,16 @@ const members = [
     name: 'Santiago Peñaloza',
     ago: 16,
     photo: photos['/src/assets/img/Members/Santiago/Photo_Profile_Santiago.jpeg'],
-    description: 'Nose',
-    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    gallery: galleryFor('Santiago'),
+    videos: [ // Pega aqui las URLs de Google Drive para videos
+    ],
+    description: 'Hijo del Baby, amigo de ChocoCrispy, la vecinita, Marianita y Marilu',
+    epic_moments: ['No ver a marianita', 'Decir "Siente mi pene/Comete este chorizo/Y esas tetas"'],
     skills: [
-      { name: 'P', point: '100/100', lineal: '100' },
-      { name: 'Re', point: '40/100', lineal: '40' },
-      { name: 'nose 3', point: '100/100', lineal: '80' },
+      { name: 'Pecho Frio', point: '80/100', lineal: '80' },
+      { name: 'Violento', point: '300%', lineal: '100' },
+      { name: 'Jalabola', point: '1000%', lineal: '100' },
+      { name: 'Estar en un cumpleaño', point: '10000%', lineal: '100' },
     ],
   },
   {
@@ -190,12 +258,19 @@ const members = [
     name: 'Jesus Perez',
     ago: 19,
     photo: photos['/src/assets/img/Members/Jesus/Photo_Profile_Jesus.png'],
-    description: 'Nose',
-    epic_moments: ['mome 1', 'mome 2', 'mome 3'],
+    gallery: galleryFor('Jesus'),
+    videos: [ // Pega aqui las URLs de Google Drive para videos
+    ],
+    description: 'Creatina',
+    epic_moments: [
+      'Historial con Yohanna',
+      'Boxeo con Fernando',
+      'Participante en el choque multiple extremo de bicicleta',
+    ],
     skills: [
-      { name: 'P', point: '100/100', lineal: '100' },
-      { name: 'Re', point: '40/100', lineal: '40' },
-      { name: 'nose 3', point: '100/100', lineal: '80' },
+      { name: 'Mujeriego', point: '10000%', lineal: '100' },
+      { name: 'Gripe', point: '500%', lineal: '100' },
+      { name: 'Aparicion en eventos random', point: '80/100', lineal: '80' },
     ],
   },
 ]
