@@ -31,9 +31,33 @@ const adventures = [
       .map((key) => photos[key]),
   },
   {
+    name: 'La Cuibas',
+    photos: Object.keys(photos)
+      .filter((key) => key.includes('/La Cuibas/'))
+      .map((key) => photos[key]),
+  },
+  {
+    name: 'Cerro el Elefante',
+    photos: Object.keys(photos)
+      .filter((key) => key.includes('/Cerro el elefante/'))
+      .map((key) => photos[key]),
+  },
+  {
+    name: 'La Playa',
+    photos: Object.keys(photos)
+      .filter((key) => key.includes('/La Playa/'))
+      .map((key) => photos[key]),
+  },
+  {
     name: 'Pa qué el gordo',
     photos: Object.keys(photos)
       .filter((key) => key.includes('/Pa qué el gordo/'))
+      .map((key) => photos[key]),
+  },
+  {
+    name: 'Extras',
+    photos: Object.keys(photos)
+      .filter((key) => key.includes('/Extras/'))
       .map((key) => photos[key]),
   },
 ]
@@ -89,6 +113,10 @@ const adventures = [
     >
       ✕
     </button>
-    <img :src="selectedPhoto" alt="Foto ampliada" class="max-h-full max-w-full object-contain rounded-lg" />
+    <img
+      :src="selectedPhoto"
+      alt="Foto ampliada"
+      class="max-h-full max-w-full object-contain rounded-lg"
+    />
   </div>
 </template>

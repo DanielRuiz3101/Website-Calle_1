@@ -17,6 +17,8 @@ defineProps({
 const emit = defineEmits(['close'])
 
 const activeTab = ref('perfil')
+const zoomedPhoto = ref(null)
+const zoomedVideo = ref(null)
 </script>
 
 <template>
@@ -122,22 +124,33 @@ const activeTab = ref('perfil')
           <div
             v-for="(image, index) in gallery"
             :key="index"
-            class="relative overflow-hidden rounded-lg border border-gray-600"
+            class="relative overflow-hidden rounded-lg border border-gray-600 cursor-pointer"
           >
-            <img :src="image" alt="Foto" loading="lazy" class="w-full h-32 object-cover" />
+            <img
+              :src="image"
+              alt="Foto"
+              loading="lazy"
+              class="w-full h-32 object-cover hover:scale-105 transition-transform duration-200"
+              @click="zoomedPhoto = image"
+            />
           </div>
         </div>
 
         <!--Videos-->
         <div v-if="videos && videos.length" class="grid grid-cols-1 gap-2">
-          <video
+          <div
             v-for="(video, index) in videos"
             :key="index"
-            :src="video"
-            controls
-            preload="none"
-            class="w-full rounded-lg border border-gray-600"
-          ></video>
+            class="relative overflow-hidden rounded-lg border border-gray-600 cursor-pointer"
+          >
+            <video
+              :src="video"
+              controls
+              preload="none"
+              class="w-full rounded-lg border border-gray-600"
+              @click="zoomedVideo = video"
+            ></video>
+          </div>
         </div>
 
         <p
@@ -148,5 +161,32 @@ const activeTab = ref('perfil')
         </p>
       </div>
     </div>
+  </div>
+
+  <!--Zoom Photo Lightbox-->
+  <div
+    v-if="zoomedPhoto"
+    class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 cursor-zoom-out"
+    @click="zoomedPhoto = null"
+  >
+    <img
+      :src="zoomedPhoto"
+      alt="Foto ampliada"
+      class="max-w-full max-h-full rounded-xl object-contain"
+    />
+  </div>
+
+  <!--Zoom Video Lightbox-->
+  <div
+    v-if="zoomedVideo"
+    class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 cursor-zoom-out"
+    @click="zoomedVideo = null"
+  >
+    <video
+      :src="zoomedVideo"
+      controls
+      autoplay
+      class="max-w-full max-h-full rounded-xl"
+    ></video>
   </div>
 </template>

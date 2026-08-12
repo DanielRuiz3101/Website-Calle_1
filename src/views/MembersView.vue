@@ -10,8 +10,24 @@ const photos = import.meta.glob('@/assets/img/Members/*/*', {
 
 const galleryFor = (folder) =>
   Object.keys(photos)
-    .filter((key) => key.includes(`/Members/${folder}/`) && !key.includes('Photo_Profile'))
+    .filter(
+      (key) =>
+        key.includes(`/Members/${folder}/`) &&
+        !key.includes('Photo_Profile') &&
+        !key.endsWith('.mp4'),
+    )
     .map((key) => photos[key])
+
+const videos = import.meta.glob('@/assets/img/Members/*/*.mp4', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+})
+
+const videosFor = (folder) =>
+  Object.keys(videos)
+    .filter((key) => key.includes(`/Members/${folder}/`))
+    .map((key) => videos[key])
 
 const ex_photos = import.meta.glob('@/assets/img/Ex_Members/*', {
   eager: true,
@@ -28,8 +44,7 @@ const members = [
     position: 'Retirado',
     photo: photos['/src/assets/img/Members/Daniel/Photo_Profile_Daniel.png'],
     gallery: galleryFor('Daniel'),
-    videos: [ // Pega aqui las URLs de Google Drive para videos
-    ],
+    videos: videosFor('Daniel'),
     description: 'Sueter de oso polar',
     epic_moments: [
       'Pegarle un pepazo en la sien a una señora',
@@ -49,8 +64,7 @@ const members = [
     ago: 21,
     photo: photos['/src/assets/img/Members/Pedro/Photo_Profile_Pedro.png'],
     gallery: galleryFor('Pedro'),
-    videos: [ // Pega aqui las URLs de Google Drive para videos
-    ],
+    videos: videosFor('Pedro'),
     description: 'Bruja Nocturna y sus esbirros',
     epic_moments: [
       'Se quedo dormido al lado con la prima de Samuel',
@@ -70,8 +84,7 @@ const members = [
     ago: 19,
     photo: photos['/src/assets/img/Members/Jose G/Photo_Profile_Jose.png'],
     gallery: galleryFor('Jose G'),
-    videos: [ // Pega aqui las URLs de Google Drive para videos
-    ],
+    videos: videosFor('Jose G'),
     description: 'Neptuniano "El Hombre de la Verdad" (Orlandito)',
     epic_moments: ['Chocar contra un porton en pedregal', 'Se empato con Albani', 'Mili Pili'],
     skills: [
@@ -87,8 +100,7 @@ const members = [
     ago: 22,
     photo: photos['/src/assets/img/Members/Julio/Photo_Profile_Julio.jpeg'],
     gallery: galleryFor('Julio'),
-    videos: [ // Pega aqui las URLs de Google Drive para videos
-    ],
+    videos: videosFor('Julio'),
     description: 'Simplemente Julio',
     epic_moments: ['Shorcito le metió una demanda', 'Historial con Crisly', 'Desmayado por Lionel'],
     skills: [
@@ -104,8 +116,7 @@ const members = [
     ago: 21,
     photo: photos['/src/assets/img/Members/Paolo/Photo_Profile_Paolo.png'],
     gallery: galleryFor('Paolo'),
-    videos: [ // Pega aqui las URLs de Google Drive para videos
-    ],
+    videos: videosFor('Paolo'),
     description: 'A veces Sardina, otra veces Pierna Parentesis',
     epic_moments: [
       'Historial con Maria Paoli',
@@ -126,8 +137,7 @@ const members = [
     ago: 19,
     photo: photos['/src/assets/img/Members/Miguel/Photo_Profile_Miguel.jpeg'],
     gallery: galleryFor('Miguel'),
-    videos: [ // Pega aqui las URLs de Google Drive para videos
-    ],
+    videos: videosFor('Miguel'),
     description: 'Power Ranger Negro y Chapoteador',
     epic_moments: [
       'Hactrick con gordas',
@@ -147,8 +157,7 @@ const members = [
     ago: 19,
     photo: photos['/src/assets/img/Members/Diego L/Photo_Profile_Labrador.jpeg'],
     gallery: galleryFor('Diego L'),
-    videos: [ // Pega aqui las URLs de Google Drive para videos
-    ],
+    videos: videosFor('Diego L'),
     description: 'Maestro de la anatomia',
     epic_moments: [
       'Historial con Alejandra y Leonor',
@@ -168,8 +177,7 @@ const members = [
     ago: 21,
     photo: photos['/src/assets/img/Members/Nelson/Photo_Profile_Nelson.png'],
     gallery: galleryFor('Nelson'),
-    videos: [ // Pega aqui las URLs de Google Drive para videos
-    ],
+    videos: videosFor('Nelson'),
     description: 'Roba niños o saco de hueso',
     epic_moments: ['Vomitado a que el gordo', 'Bailalo Rocky', 'Shores Inamovibles'],
     skills: [
@@ -185,8 +193,7 @@ const members = [
     ago: 19,
     photo: photos['/src/assets/img/Members/Diego B/Photo_Profile_Briceño.png'],
     gallery: galleryFor('Diego B'),
-    videos: [ // Pega aqui las URLs de Google Drive para videos
-    ],
+    videos: videosFor('Diego B'),
     description: 'Toro Pro Max Follador 3000',
     epic_moments: ['Se reventó el ojo con un alambre', 'Correr con un vacio de cerveza'],
     skills: [
@@ -203,8 +210,7 @@ const members = [
     ago: 20,
     photo: photos['/src/assets/img/Members/Lionel/Photo_Profile_Lionel.jpeg'],
     gallery: galleryFor('Lionel'),
-    videos: [ // Pega aqui las URLs de Google Drive para videos
-    ],
+    videos: videosFor('Lionel'),
     description: 'Experto en el 3 dedo/Gloria Deportiva',
     epic_moments: [
       'Historial con Maria Belen y Adriana',
@@ -224,8 +230,7 @@ const members = [
     ago: 20,
     photo: photos['/src/assets/img/Members/Jose A/Photo_Profile_JoseA.jpeg'],
     gallery: galleryFor('Jose A'),
-    videos: [ // Pega aqui las URLs de Google Drive para videos
-    ],
+    videos: videosFor('Jose A'),
     description: 'Sus palabras e ideas cambian el mundo / Evaluador de la crianza',
     epic_moments: ['Borracho del Gol', 'Robo de Torta', 'Tocame aqui'],
     skills: [
@@ -241,8 +246,7 @@ const members = [
     ago: 16,
     photo: photos['/src/assets/img/Members/Santiago/Photo_Profile_Santiago.jpeg'],
     gallery: galleryFor('Santiago'),
-    videos: [ // Pega aqui las URLs de Google Drive para videos
-    ],
+    videos: videosFor('Santiago'),
     description: 'Hijo del Baby, amigo de ChocoCrispy, la vecinita, Marianita y Marilu',
     epic_moments: ['No ver a marianita', 'Decir "Siente mi pene/Comete este chorizo/Y esas tetas"'],
     skills: [
@@ -259,8 +263,7 @@ const members = [
     ago: 19,
     photo: photos['/src/assets/img/Members/Jesus/Photo_Profile_Jesus.png'],
     gallery: galleryFor('Jesus'),
-    videos: [ // Pega aqui las URLs de Google Drive para videos
-    ],
+    videos: videosFor('Jesus'),
     description: 'Creatina',
     epic_moments: [
       'Historial con Yohanna',
